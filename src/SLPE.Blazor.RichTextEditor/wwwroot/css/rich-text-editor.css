@@ -22,6 +22,8 @@
     --rte-bg-active: #dbeafe;
     --rte-bg-input: #f3f4f6;
     --rte-link: #00173b;
+    --rte-ring: rgba(0, 23, 59, 0.3);
+    --rte-ring-dialog: rgba(0, 23, 59, 0.2);
 }
 
 .dark {
@@ -39,6 +41,8 @@
     --rte-bg-active: #1e3a5f;
     --rte-bg-input: #374151;
     --rte-link: #809ab8;
+    --rte-ring: rgba(96, 165, 250, 0.4);
+    --rte-ring-dialog: rgba(96, 165, 250, 0.3);
 }
 
 
@@ -132,7 +136,7 @@
     color: var(--rte-text);
 }
 
-.rte-content:focus { box-shadow: inset 0 0 0 2px rgba(0, 23, 59, 0.3); }
+.rte-content:focus { box-shadow: inset 0 0 0 2px var(--rte-ring); }
 
 /* Typography inside editor — matches handbook page styling for WYSIWYG fidelity */
 .rte-content h1         { font-size: 1.8rem; margin: 0 0 1rem; font-weight: 700; color: var(--rte-text-heading); }
@@ -239,7 +243,7 @@
     color: var(--rte-text);
 }
 
-.rte-dialog input:focus { border-color: var(--rte-primary); box-shadow: 0 0 0 2px rgba(0, 23, 59, 0.2); }
+.rte-dialog input:focus { border-color: var(--rte-primary); box-shadow: 0 0 0 2px var(--rte-ring-dialog); }
 
 .rte-dialog .rte-dialog-check {
     display: flex;

@@ -1,0 +1,284 @@
+/* ==========================================================================
+   SLPE.Blazor.RichTextEditor — Styles
+   ==========================================================================
+   All styles use CSS custom properties for theming. Override --rte-* variables
+   in your application's CSS to customise colours.
+   ========================================================================== */
+
+/* ── CSS Custom Properties ── */
+
+:root {
+    --rte-accent: #2563eb;
+    --rte-accent-hover: #1d4ed8;
+    --rte-primary: #00173b;
+    --rte-primary-hover: #001335;
+    --rte-text: #2d3748;
+    --rte-text-heading: #1a202c;
+    --rte-text-muted: #6b7280;
+    --rte-border: #d1d5db;
+    --rte-bg: #ffffff;
+    --rte-bg-toolbar: #f9fafb;
+    --rte-bg-hover: #e5e7eb;
+    --rte-bg-active: #dbeafe;
+    --rte-bg-input: #f3f4f6;
+    --rte-link: #00173b;
+}
+
+.dark {
+    --rte-accent: #3b82f6;
+    --rte-accent-hover: #2563eb;
+    --rte-primary: #60a5fa;
+    --rte-primary-hover: #93bbfc;
+    --rte-text: #e5e7eb;
+    --rte-text-heading: #f3f4f6;
+    --rte-text-muted: #9ca3af;
+    --rte-border: #4b5563;
+    --rte-bg: #1f2937;
+    --rte-bg-toolbar: #374151;
+    --rte-bg-hover: #4b5563;
+    --rte-bg-active: #1e3a5f;
+    --rte-bg-input: #374151;
+    --rte-link: #809ab8;
+}
+
+
+/* ── Container ── */
+
+.rte-container {
+    border: 1px solid var(--rte-border);
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    background: var(--rte-bg);
+    overflow: hidden;
+}
+
+
+/* ── Toolbar ── */
+
+.rte-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2px;
+    padding: 4px 6px;
+    background: var(--rte-bg-toolbar);
+    border-bottom: 1px solid var(--rte-bg-hover);
+    min-height: 40px;
+}
+
+
+/* ── Toolbar Buttons ── */
+
+.rte-btn {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--rte-text);
+    padding: 4px;
+    flex-shrink: 0;
+}
+
+.rte-btn:hover    { background: var(--rte-bg-hover); }
+.rte-btn.active   { background: var(--rte-bg-active); color: var(--rte-accent); }
+.rte-btn:disabled { opacity: 0.4; cursor: default; }
+.rte-btn svg      { width: 18px; height: 18px; pointer-events: none; }
+
+
+/* ── Toolbar Separator ── */
+
+.rte-separator {
+    width: 1px;
+    height: 24px;
+    background: var(--rte-border);
+    margin: 0 4px;
+    flex-shrink: 0;
+}
+
+
+/* ── Toolbar Select (heading/block-format dropdown) ── */
+
+.rte-select {
+    height: 32px;
+    padding: 0 6px;
+    border: 1px solid var(--rte-border);
+    border-radius: 4px;
+    background: var(--rte-bg);
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--rte-text);
+    cursor: pointer;
+    outline: none;
+}
+
+.rte-select:focus { border-color: var(--rte-accent); }
+
+
+/* ── Editable Content Area ── */
+
+.rte-content {
+    padding: 1.5rem;
+    overflow-y: auto;
+    outline: none;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--rte-text);
+}
+
+.rte-content:focus { box-shadow: inset 0 0 0 2px rgba(0, 23, 59, 0.3); }
+
+/* Typography inside editor — matches handbook page styling for WYSIWYG fidelity */
+.rte-content h1         { font-size: 1.8rem; margin: 0 0 1rem; font-weight: 700; color: var(--rte-text-heading); }
+.rte-content h2         { font-size: 1.4rem; margin: 1.5rem 0 0.75rem; font-weight: 600; color: var(--rte-text-heading); }
+.rte-content h3         { font-size: 1.2rem; margin: 1.25rem 0 0.5rem; font-weight: 600; color: var(--rte-text-heading); }
+.rte-content h4         { font-size: 1.1rem; margin: 1rem 0 0.5rem; font-weight: 600; color: var(--rte-text-heading); }
+.rte-content p          { margin: 0 0 1rem; }
+.rte-content ul         { margin: 0 0 1rem; padding-left: 2rem; list-style-type: disc; }
+.rte-content ol         { margin: 0 0 1rem; padding-left: 2rem; list-style-type: decimal; }
+.rte-content li         { margin-bottom: 0.5rem; }
+.rte-content a          { color: var(--rte-link); text-decoration: underline; }
+.rte-content blockquote { border-left: 3px solid var(--rte-border); margin: 0 0 1rem; padding: 0.5rem 1rem; color: var(--rte-text-muted); }
+.rte-content table      { width: 100%; border-collapse: collapse; margin: 0 0 1rem; }
+.rte-content th,
+.rte-content td         { border: 1px solid var(--rte-border); padding: 0.5rem 0.75rem; text-align: left; }
+.rte-content th         { background: var(--rte-bg-input); font-weight: 600; }
+.rte-content img        { max-width: 100%; height: auto; }
+
+
+/* ── Code View (HTML source toggle) ── */
+
+.rte-code-view {
+    width: 100%;
+    padding: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    border: none;
+    outline: none;
+    resize: none;
+    background: #1f2937;
+    color: #e5e7eb;
+    display: none;
+}
+
+.rte-container.code-active .rte-content   { display: none; }
+.rte-container.code-active .rte-code-view { display: block; }
+
+
+/* ── Fullscreen Mode ── */
+
+.rte-fullscreen {
+    position: fixed !important;
+    inset: 0;
+    z-index: 9999;
+    border-radius: 0;
+    border: none;
+}
+
+.rte-fullscreen .rte-content,
+.rte-fullscreen .rte-code-view { flex: 1; }
+
+
+/* ── Dialog Overlay (link / table insertion) ── */
+
+.rte-dialog-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.rte-dialog {
+    background: var(--rte-bg);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    width: 400px;
+    max-width: 90vw;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    font-family: inherit;
+}
+
+.rte-dialog h3 {
+    margin: 0 0 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--rte-text-heading);
+}
+
+.rte-dialog label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--rte-text);
+    margin-bottom: 0.25rem;
+}
+
+.rte-dialog input[type="text"],
+.rte-dialog input[type="url"],
+.rte-dialog input[type="number"] {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--rte-border);
+    border-radius: 0.375rem;
+    font-family: inherit;
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+    box-sizing: border-box;
+    outline: none;
+    background: var(--rte-bg);
+    color: var(--rte-text);
+}
+
+.rte-dialog input:focus { border-color: var(--rte-primary); box-shadow: 0 0 0 2px rgba(0, 23, 59, 0.2); }
+
+.rte-dialog .rte-dialog-check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    color: var(--rte-text);
+}
+
+.rte-dialog .rte-dialog-check input[type="checkbox"] { width: auto; margin: 0; }
+
+.rte-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.rte-dialog-actions button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-family: inherit;
+    font-size: 0.875rem;
+    cursor: pointer;
+    border: none;
+}
+
+.rte-dialog-actions .rte-btn-cancel       { background: var(--rte-bg-input); color: var(--rte-text); }
+.rte-dialog-actions .rte-btn-cancel:hover  { background: var(--rte-bg-hover); }
+.rte-dialog-actions .rte-btn-primary       { background: var(--rte-primary); color: white; }
+.rte-dialog-actions .rte-btn-primary:hover { background: var(--rte-primary-hover); }
+
+
+/* ── Mobile Overrides ── */
+
+@media (max-width: 639px) {
+    .rte-btn { width: 36px; height: 36px; }
+    .rte-separator { display: none; }
+    .rte-content { padding: 1rem; }
+    .rte-dialog { width: calc(100vw - 2rem); max-width: 100vw; }
+}

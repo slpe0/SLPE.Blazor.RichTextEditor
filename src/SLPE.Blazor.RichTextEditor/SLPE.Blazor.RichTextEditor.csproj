@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <PackageId>SLPE.Blazor.RichTextEditor</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>SLPE</Authors>
+    <Description>A lightweight Blazor rich text editor using contenteditable and native browser APIs. No third-party JS dependencies.</Description>
+    <PackageTags>blazor;rich-text-editor;wysiwyg;contenteditable</PackageTags>
+    <RepositoryUrl>https://github.com/slpe0/SLPE.Blazor.RichTextEditor</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+</Project>
